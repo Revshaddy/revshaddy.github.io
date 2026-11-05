@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Shadrack Agyiri | Learning Experience Designer</title>
+<meta name="description" content="Shadrack Agyiri, Learning Experience Designer. Training built like engineered systems: clear purpose, tested parts, measurable results.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1C2434; --ink-2:#253047;
+  --orange:#E8872C; --orange-text:#A9520C;
+  --paper:#F4F6F9; --surface:#FFFFFF;
+  --text:#1C2434; --muted:#556074; --line:#D8DEE8;
+  --grid:rgba(255,255,255,.06);
+  --display:"Archivo", "Arial Narrow", Arial, sans-serif;
+  --body:"IBM Plex Sans", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#121826; --surface:#1A2233; --text:#E9EDF4; --muted:#A5AFC0;
+    --line:#2C3650; --orange-text:#F2A25A; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#121826; --surface:#1A2233; --text:#E9EDF4; --muted:#A5AFC0;
+  --line:#2C3650; --orange-text:#F2A25A; color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--text);font:400 1.0625rem/1.65 var(--body);-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--orange);outline-offset:3px;border-radius:2px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 clamp(20px,5vw,48px)}
+
+/* Header */
+header.site{background:var(--ink);color:#fff}
+header.site .wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
+.mark{display:flex;align-items:center;gap:12px;text-decoration:none;font:700 1.05rem var(--display);font-stretch:110%}
+.mark svg{width:34px;height:34px}
+nav.main{display:flex;gap:clamp(14px,3vw,32px)}
+nav.main a{text-decoration:none;font-weight:500;font-size:.98rem;color:#DCE2EC;padding:6px 0;border-bottom:2px solid transparent}
+nav.main a:hover,nav.main a[aria-current="page"]{color:#fff;border-bottom-color:var(--orange)}
+
+/* Hero: the one bold moment — a blueprint panel */
+.hero{background:var(--ink);color:#fff;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:32px 32px;mask-image:linear-gradient(180deg,#000 60%,transparent)}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.25fr .9fr;gap:clamp(28px,5vw,72px);align-items:end;padding-top:clamp(40px,7vw,96px)}
+.hero h1{font:800 clamp(2.4rem,5.6vw,4.4rem)/1.02 var(--display);font-stretch:68%;letter-spacing:-.01em;margin:0 0 .45em;max-width:14ch}
+.hero .lede{font-size:clamp(1.1rem,1.6vw,1.3rem);line-height:1.55;color:#C9D1DE;max-width:36ch;margin:0 0 1.2em}
+.hero .lede strong{color:#fff;font-weight:600}
+.hero .sub{color:#9AA6B9;max-width:46ch;margin:0 0 2em;font-size:1rem}
+.hero .copy{padding-bottom:clamp(40px,7vw,96px)}
+.cta{display:flex;flex-wrap:wrap;gap:14px}
+.btn{display:inline-block;text-decoration:none;font-weight:600;padding:13px 22px;border-radius:6px;font-size:1rem}
+.btn.primary{background:var(--orange);color:#1C2434}
+.btn.primary:hover{background:#F39A45}
+.btn.ghost{color:#fff;box-shadow:inset 0 0 0 1.5px #4A5670}
+.btn.ghost:hover{box-shadow:inset 0 0 0 1.5px #fff}
+.portrait{align-self:end;position:relative}
+.portrait img{width:100%;max-width:440px;margin-left:auto;border-radius:220px 220px 0 0}
+.spec{position:absolute;left:-8px;bottom:28px;background:#fff;color:var(--ink);border-radius:6px;padding:10px 14px;font-size:.85rem;line-height:1.35;box-shadow:0 10px 30px rgba(0,0,0,.25);max-width:220px}
+.spec b{display:block;font:700 1.35rem/1.1 var(--display);font-stretch:80%;color:var(--orange-text)}
+:root[data-theme="dark"] .spec b{color:#A9520C}
+
+/* Sections */
+section.block{padding:clamp(56px,9vw,112px) 0}
+.h2{font:800 clamp(1.9rem,3.6vw,2.8rem)/1.05 var(--display);font-stretch:72%;margin:0 0 .4em}
+.intro{color:var(--muted);max-width:58ch;margin:0 0 clamp(32px,5vw,56px)}
+
+/* Projects: alternating case-study rows, not a card grid */
+.project{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(24px,5vw,64px);align-items:center;padding:clamp(28px,4vw,44px) 0;border-top:1px solid var(--line)}
+.project:nth-child(even) .cover{order:2}
+.cover{border-radius:10px;overflow:hidden;aspect-ratio:16/10;background:var(--ink)}
+.cover svg{width:100%;height:100%;display:block}
+.kind{color:var(--orange-text);font-weight:600;font-size:.95rem;margin:0 0 .3em}
+.project h3{font:800 clamp(1.5rem,2.6vw,2rem)/1.1 var(--display);font-stretch:78%;margin:0 0 .4em}
+.project p.desc{margin:0 0 1em;max-width:46ch}
+.facts{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 1.1em;padding:0;list-style:none}
+.facts li{font-size:.85rem;padding:4px 10px;border:1px solid var(--line);border-radius:4px;color:var(--muted);background:var(--surface)}
+.status{font-size:.92rem;color:var(--muted);font-style:italic}
+
+/* Approach */
+.approach{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,4vw,48px)}
+.pillar h3{font:700 1.3rem/1.2 var(--display);font-stretch:85%;margin:.6em 0 .4em}
+.pillar p{margin:0;color:var(--muted)}
+.pillar svg{width:44px;height:44px}
+
+/* About view */
+.about-top{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(28px,5vw,72px);align-items:start}
+.about-top img{border-radius:10px;width:100%;max-width:400px}
+.about-top h1{font:800 clamp(2.2rem,4.6vw,3.6rem)/1.04 var(--display);font-stretch:70%;margin:0 0 .5em}
+.about-top p{max-width:60ch}
+.timeline{list-style:none;margin:0;padding:0;border-left:2px solid var(--line)}
+.timeline li{position:relative;padding:0 0 28px 28px}
+.timeline li::before{content:"";position:absolute;left:-7px;top:.45em;width:12px;height:12px;border-radius:50%;background:var(--paper);border:2px solid var(--orange)}
+.timeline h3{font:700 1.15rem/1.3 var(--display);font-stretch:90%;margin:0}
+.timeline .where{color:var(--muted);font-size:.95rem;margin:0 0 .3em}
+.timeline p{margin:0;max-width:62ch}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,64px)}
+.plain{margin:0;padding-left:1.1em}
+.plain li{margin-bottom:.45em}
+
+/* Footer */
+footer{background:var(--ink);color:#fff;padding:clamp(48px,8vw,88px) 0 40px}
+footer .h2{color:#fff}
+footer p{color:#B9C2D1;max-width:48ch}
+.links{display:flex;flex-wrap:wrap;gap:14px;margin:24px 0 48px}
+.small{color:#7F8BA0;font-size:.85rem}
+
+/* Case study view */
+.cs-hero{background:var(--ink);color:#fff;padding:clamp(40px,7vw,88px) 0 clamp(36px,6vw,64px)}
+.back{color:#C9D1DE;text-decoration:none;font-weight:500;font-size:.95rem}
+.back:hover{color:#fff;text-decoration:underline}
+.cs-hero .kind{color:var(--orange);margin-top:1.4em}
+.cs-hero h1{font:800 clamp(2rem,4.8vw,3.6rem)/1.04 var(--display);font-stretch:70%;margin:0 0 .5em;max-width:20ch}
+.cs-hero p.lead{color:#C9D1DE;max-width:60ch;margin:0 0 1.6em;font-size:1.1rem}
+.meta{display:grid;grid-template-columns:repeat(4,1fr);gap:16px 28px;margin:0;padding-top:24px;border-top:1px solid #36425A}
+.meta dt{color:#93A0B5;font-size:.88rem;margin-bottom:2px}
+.meta dd{margin:0;font-weight:600;line-height:1.35}
+.cs{max-width:760px}
+.cs-sec{padding:clamp(36px,6vw,64px) 0;border-bottom:1px solid var(--line)}
+.cs-sec:last-child{border-bottom:0}
+.cs h2{font:800 clamp(1.6rem,3vw,2.2rem)/1.1 var(--display);font-stretch:76%;margin:0 0 .5em}
+.cs p{margin:0 0 1em}
+.problems{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.problems li{padding-left:18px;border-left:3px solid var(--orange)}
+.problems strong{display:block}
+.steps{list-style:none;margin:1.2em 0 0;padding:0;border-left:2px solid var(--line)}
+.steps li{position:relative;padding:0 0 22px 26px}
+.steps li::before{content:"";position:absolute;left:-7px;top:.4em;width:12px;height:12px;border-radius:50%;background:var(--paper);border:2px solid var(--orange)}
+.steps li.cap::before{background:var(--orange)}
+.steps .n{color:var(--muted);font-size:.9rem}
+.steps b{display:block;font:700 1.12rem/1.3 var(--display);font-stretch:88%}
+.port{font-weight:600;font-size:.85em;background:rgba(232,135,44,.16);color:var(--orange-text);padding:.05em .4em;border-radius:3px;white-space:nowrap}
+.beats{list-style:none;margin:1.2em 0;padding:0;display:grid;grid-template-columns:repeat(5,1fr);gap:10px;counter-reset:b}
+.beats li{background:var(--surface);border:1px solid var(--line);border-top:3px solid var(--orange);border-radius:6px;padding:12px;font-size:.93rem;line-height:1.45}
+.beats b{display:block;font:700 1rem var(--display);font-stretch:88%;margin-bottom:4px}
+.note{color:var(--muted);font-size:.97rem}
+.lab{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:clamp(40px,6vw,72px) 0}
+.sim{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:24px;margin-top:24px}
+.scene{border:1px solid var(--line);border-radius:10px;padding:20px;background:var(--paper);display:grid;gap:14px;min-width:0}
+.scene .prompt{font-size:1.1rem;margin:0}
+.choices{display:grid;gap:10px}
+.choices button{font:inherit;text-align:left;padding:13px 15px;border-radius:6px;border:1px solid var(--line);background:var(--surface);color:var(--text);cursor:pointer}
+.choices button:hover{border-color:var(--orange)}
+.fb{border-radius:6px;padding:12px 14px;font-size:.98rem}
+.fb strong{display:block;margin-bottom:2px}
+.fb.warn{background:rgba(196,72,30,.1);border-left:4px solid #C4481E}
+.fb.ok{background:rgba(47,122,58,.12);border-left:4px solid #2F7A3A}
+.fb.info{background:rgba(232,135,44,.12);border-left:4px solid var(--orange)}
+.side h3{font:700 1.05rem var(--display);font-stretch:88%;margin:0 0 6px}
+.side ol{margin:0 0 14px;padding-left:1.2em;font-size:.95rem}
+.side li.done{color:var(--muted);text-decoration:line-through}
+.side p{font-size:.92rem;color:var(--muted);margin:0}
+.restart{font:inherit;font-size:.9rem;background:none;border:1px solid var(--line);color:var(--muted);border-radius:6px;padding:7px 12px;cursor:pointer;justify-self:start}
+.tablebox{overflow-x:auto;border:1px solid var(--line);border-radius:8px;background:var(--surface);margin-top:16px}
+table{border-collapse:collapse;width:100%;font-size:.95rem;min-width:560px}
+th,td{text-align:left;padding:10px 14px;border-top:1px solid var(--line);vertical-align:top}
+thead th{border-top:0;background:var(--ink);color:#fff;font-weight:600;font-size:.9rem}
+td:first-child{font-weight:600}
+.levels{display:grid;gap:12px;margin-top:12px}
+.levels div{display:grid;grid-template-columns:90px 1fr;gap:12px}
+.levels span{font-weight:700;color:var(--orange-text)}
+.levels p{margin:0}
+.credit{color:var(--muted);font-size:.88rem}
+.btn.text{padding:0;color:var(--orange-text);font-weight:600;text-decoration:underline;text-underline-offset:3px}
+@media (max-width:820px){.meta{grid-template-columns:1fr 1fr}.beats{grid-template-columns:1fr 1fr}.sim{grid-template-columns:1fr}}
+
+[hidden]{display:none!important}
+
+@media (max-width:820px){
+  .hero .wrap{grid-template-columns:1fr}
+  .hero .copy{padding-bottom:8px}
+  .portrait img{margin:0 auto;max-width:340px}
+  .spec{left:6px}
+  .project{grid-template-columns:1fr}
+  .project:nth-child(even) .cover{order:0}
+  .pillars,.two,.about-top{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <a class="mark" href="#">
+      <svg viewBox="0 0 34 34" aria-hidden="true"><rect x="1" y="1" width="32" height="32" rx="7" fill="#E8872C"/><path d="M9 21.5c1.2 1.6 3 2.4 5 2.4 2.6 0 4.2-1.3 4.2-3.2 0-4.3-8.6-2.4-8.6-7.4 0-2.2 1.9-3.8 4.6-3.8 1.8 0 3.3.6 4.4 1.8" fill="none" stroke="#1C2434" stroke-width="2.4" stroke-linecap="round"/><path d="M20 24l3.5-14L27 24M21.1 19.6h4.8" fill="none" stroke="#1C2434" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Shadrack Agyiri
+    </a>
+    <nav class="main" aria-label="Main">
+      <a href="#work" data-nav="work">Projects</a>
+      <a href="#about" data-nav="about">About</a>
+      <a href="https://drive.google.com/file/d/1i8v3_HQKEhaBJcY2WiA7CTC0rIu_MCQ6/view?usp=drivesdk" target="_blank" rel="noopener">Resume</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<!-- HOME VIEW -->
+<div id="view-home">
+  <section class="hero">
+    <div class="wrap">
+      <div class="copy">
+        <h1>Hi, I’m Shadrack. A Learning Experience Designer.</h1>
+        <p class="lede">I build training the way engineers build systems: with <strong>a clear purpose, tested parts, and results you can measure.</strong></p>
+        <p class="sub">15+ years turning complex, technical skills into hands-on learning, from robotics classrooms to manufacturing operations.</p>
+        <div class="cta">
+          <a class="btn primary" href="#work">See my projects</a>
+          <a class="btn ghost" href="#about">About me</a>
+        </div>
+      </div>
+      <div class="portrait">
+        <img src="portrait.jpg" alt="Portrait of Shadrack Agyiri in a charcoal suit and orange bow tie, smiling">
+        <div class="spec"><b>15+ years</b>designing STEM and workforce learning</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="projects" aria-labelledby="projects-h">
+    <div class="wrap">
+      <h2 class="h2" id="projects-h">Selected projects</h2>
+      <p class="intro">Each project is written up as a full case study: the problem, the learners, the design decisions and the learning science behind them, and what I’d change next time.</p>
+
+      <div class="projects">
+        <article class="project">
+          <div class="cover">
+            <svg viewBox="0 0 320 200" role="img" aria-label="Line drawing of a two-wheeled robot on a blueprint grid">
+              <rect width="320" height="200" fill="#1C2434"/>
+              <g stroke="rgba(255,255,255,.07)"><path d="M0 40h320M0 80h320M0 120h320M0 160h320M40 0v200M80 0v200M120 0v200M160 0v200M200 0v200M240 0v200M280 0v200"/></g>
+              <g fill="none" stroke="#E8872C" stroke-width="3" stroke-linejoin="round">
+                <rect x="118" y="62" width="84" height="64" rx="6"/>
+                <rect x="132" y="38" width="56" height="24" rx="4"/>
+                <circle cx="150" cy="50" r="5"/><circle cx="170" cy="50" r="5"/>
+                <circle cx="124" cy="140" r="22"/><circle cx="196" cy="140" r="22"/>
+                <circle cx="124" cy="140" r="6"/><circle cx="196" cy="140" r="6"/>
+                <path d="M118 94h-20v-18M202 94h20v-18"/>
+              </g>
+              <g fill="#fff" opacity=".85"><rect x="134" y="76" width="52" height="8" rx="2"/><rect x="134" y="92" width="34" height="8" rx="2"/></g>
+            </svg>
+          </div>
+          <div>
+            <p class="kind">Technical skills program</p>
+            <h3>Robotec 2022: From First Moves to a Factory Robot</h3>
+            <p class="desc">A seven-lesson robotics camp I organized, sequenced and taught, taking 60+ beginners from a basic two-motor robot to an autonomous factory mission. Includes a branching troubleshooting scenario you can try.</p>
+            <ul class="facts" aria-label="Project details"><li>60+ learners</li><li>Branching scenario</li><li>Job aid and rubric</li></ul>
+            <a class="btn text" href="#robotec">Read the case study</a>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="cover">
+            <svg viewBox="0 0 320 200" role="img" aria-label="Gear and wrench illustration">
+              <rect width="320" height="200" fill="#253047"/>
+              <g fill="none" stroke="#E8872C" stroke-width="3">
+                <circle cx="140" cy="100" r="34"/><circle cx="140" cy="100" r="12"/>
+                <path d="M140 52v14M140 134v14M92 100h14M174 100h14M106 66l10 10M164 124l10 10M106 134l10-10M164 76l10-10"/>
+              </g>
+              <path d="M196 140l46-46a18 18 0 0 1 22-24l-12 12 4 10 10 4 12-12a18 18 0 0 1-24 22l-46 46z" fill="none" stroke="#fff" stroke-width="3" stroke-linejoin="round"/>
+              <g fill="#E8872C"><circle cx="54" cy="44" r="4"/><circle cx="70" cy="44" r="4" opacity=".5"/><circle cx="86" cy="44" r="4" opacity=".25"/></g>
+            </svg>
+          </div>
+          <div>
+            <p class="kind">Scenario-based microlearning</p>
+            <h3>Preventive Maintenance on the Line</h3>
+            <p class="desc">A short, decision-driven module where production operators diagnose a machine fault and choose the right maintenance steps before downtime costs the shift.</p>
+            <ul class="facts" aria-label="Project details"><li>Adobe Captivate</li><li>Manufacturing</li><li>Performance support</li></ul>
+            <p class="status">Case study in progress</p>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="cover">
+            <svg viewBox="0 0 320 200" role="img" aria-label="Onboarding path with checkpoints">
+              <rect width="320" height="200" fill="#1C2434"/>
+              <path d="M40 160c40 0 40-60 80-60s40 50 80 50 40-90 80-90" fill="none" stroke="#4A5670" stroke-width="3" stroke-dasharray="6 8"/>
+              <g fill="#E8872C"><circle cx="40" cy="160" r="9"/><circle cx="120" cy="100" r="9"/><circle cx="200" cy="150" r="9"/></g>
+              <circle cx="280" cy="60" r="14" fill="none" stroke="#E8872C" stroke-width="3"/>
+              <path d="M273 60l5 5 9-10" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div>
+            <p class="kind">Training program design</p>
+            <h3>Onboarding New Healthcare Staff</h3>
+            <p class="desc">A complete onboarding program for a New Jersey healthcare staffing agency, from needs analysis and design document to job aids and a four-level evaluation plan.</p>
+            <ul class="facts" aria-label="Project details"><li>Needs analysis</li><li>Design document</li><li>Kirkpatrick evaluation</li></ul>
+            <p class="status">Case study in progress</p>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="cover">
+            <svg viewBox="0 0 320 200" role="img" aria-label="Screen with a play button">
+              <rect width="320" height="200" fill="#253047"/>
+              <rect x="70" y="40" width="180" height="110" rx="8" fill="none" stroke="#fff" stroke-width="3"/>
+              <path d="M140 160h40M160 150v10" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+              <circle cx="160" cy="95" r="26" fill="#E8872C"/>
+              <path d="M152 82v26l22-13z" fill="#1C2434"/>
+              <rect x="86" y="132" width="148" height="4" rx="2" fill="#4A5670"/><rect x="86" y="132" width="60" height="4" rx="2" fill="#E8872C"/>
+            </svg>
+          </div>
+          <div>
+            <p class="kind">Video tutorials</p>
+            <h3>Software Skills in Five Minutes</h3>
+            <p class="desc">A short tutorial series that walks new users through a workplace software task, paired with a one-page quick reference they can keep at their desk.</p>
+            <ul class="facts" aria-label="Project details"><li>Camtasia</li><li>Microlearning video</li><li>Quick reference guide</li></ul>
+            <p class="status">Case study in progress</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="block approach" aria-labelledby="approach-h">
+    <div class="wrap">
+      <h2 class="h2" id="approach-h">How I design</h2>
+      <p class="intro">Good training works like a well-built machine. Every part has a job, and you can check that it’s doing it.</p>
+      <div class="pillars">
+        <div class="pillar">
+          <svg viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="19" fill="none" stroke="#E8872C" stroke-width="3"/><circle cx="22" cy="22" r="10" fill="none" stroke="#E8872C" stroke-width="3"/><circle cx="22" cy="22" r="3" fill="#E8872C"/></svg>
+          <h3>A clear purpose</h3>
+          <p>I start with the job people need to do and the gap in the way, so every activity ties back to a real performance goal.</p>
+        </div>
+        <div class="pillar">
+          <svg viewBox="0 0 44 44" aria-hidden="true"><rect x="4" y="4" width="15" height="15" rx="2" fill="none" stroke="#E8872C" stroke-width="3"/><rect x="25" y="4" width="15" height="15" rx="2" fill="#E8872C"/><rect x="4" y="25" width="15" height="15" rx="2" fill="#E8872C"/><rect x="25" y="25" width="15" height="15" rx="2" fill="none" stroke="#E8872C" stroke-width="3"/></svg>
+          <h3>Tested parts</h3>
+          <p>I prototype early and try each piece with real learners, the same way I taught students to test a robot before competition day.</p>
+        </div>
+        <div class="pillar">
+          <svg viewBox="0 0 44 44" aria-hidden="true"><path d="M5 38h34" stroke="#E8872C" stroke-width="3" stroke-linecap="round"/><rect x="8" y="24" width="7" height="10" fill="#E8872C"/><rect x="19" y="16" width="7" height="18" fill="#E8872C"/><rect x="30" y="7" width="7" height="27" fill="#E8872C"/></svg>
+          <h3>Results you can measure</h3>
+          <p>I plan how we’ll know it worked before I build anything, from quiz data to what changes on the job.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ABOUT VIEW -->
+<div id="view-about" hidden>
+  <section class="block">
+    <div class="wrap about-top">
+      <img src="portrait.jpg" alt="Shadrack Agyiri smiling, wearing glasses, a charcoal suit and an orange bow tie">
+      <div>
+        <h1>Teacher, builder, learning designer.</h1>
+        <p>I spent more than fifteen years in Ghana leading STEM programs, teaching young people to build robots, write code, and solve problems the way engineers do. I designed the curricula, trained the teachers who delivered them, and watched hands-on learning change what students believed they could do.</p>
+        <p>Since moving to the United States, I’ve carried that same approach into operations training and learning and development at Cardinal Health and L’Oréal USA, where the learners are adults on a production floor and the stakes are uptime, quality, and safety.</p>
+        <p>Today I design learning experiences for the workplace: scenario-based eLearning, video tutorials, job aids, and full training programs, each built with a clear purpose and a way to measure whether it worked.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="block approach">
+    <div class="wrap two">
+      <div>
+        <h2 class="h2">Where I’ve worked</h2>
+        <ol class="timeline">
+          <li><h3>STEM Program Leader and Instructional Designer</h3><p class="where">Ghana</p><p>Led integrated STEM, robotics and coding programs, wrote curricula, and coached teachers to deliver them.</p></li>
+          <li><h3>Operations Training</h3><p class="where">Cardinal Health</p><p>Supported training on production equipment and performed routine machine maintenance.</p></li>
+          <li><h3>Learning and Development</h3><p class="where">L’Oréal USA</p><p>Supported learning and development for operations teams.</p></li>
+        </ol>
+      </div>
+      <div>
+        <h2 class="h2">Toolkit</h2>
+        <ul class="plain">
+          <li>Adobe Captivate for branching scenarios</li>
+          <li>Camtasia for self-paced video tutorials</li>
+          <li>Microsoft 365 (Microsoft Innovative Educator Trainer)</li>
+          <li>Scratch, robotics platforms, and basic web development</li>
+        </ul>
+        <h2 class="h2" style="margin-top:1.2em">Credentials</h2>
+        <ul class="plain">
+          <li>B.Ed. in Technology Education, University of Skills Training and Entrepreneurial Development, Ghana</li>
+          <li>Train-the-Trainer certification, Scratch Coding</li>
+          <li>Microsoft Innovative Educator Trainer</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- CASE STUDY: ROBOTEC -->
+<div id="view-robotec" hidden>
+  <section class="cs-hero">
+    <div class="wrap">
+      <a class="back" href="#work">Back to projects</a>
+      <p class="kind">Case study: technical skills program</p>
+      <h1>Robotec 2022: from first moves to an autonomous factory robot</h1>
+      <p class="lead">A holiday robotics camp built on LEGO® Education’s MINDSTORMS EV3 “Robot Trainer” unit. Learners start with a basic two-motor robot and, one capability at a time, program it to sense obstacles, carry loads, follow lines and navigate by gyro, then combine everything in a factory-floor mission.</p>
+      <dl class="meta">
+        <div><dt>My role</dt><dd>Organizer, designer, lead facilitator, instructor trainer</dd></div>
+        <div><dt>Learners</dt><dd>60+ across multiple cohorts</dd></div>
+        <div><dt>Format</dt><dd>Hands-on holiday camp, teams of 2–3 per kit</dd></div>
+        <div><dt>I designed</dt><dd>Sequence, session routine, scenario, quick card, rubric</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <div class="wrap cs">
+    <section class="cs-sec" aria-labelledby="r-problem">
+      <h2 id="r-problem">The design problem</h2>
+      <ul class="problems">
+        <li><strong>Beginners with very different starting points.</strong>Some learners had never programmed; others had built robots before. The program had to keep both groups moving.</li>
+        <li><strong>A short, intensive window.</strong>A holiday camp has no homework time, so every session had to end with something working.</li>
+        <li><strong>A real integrated goal.</strong>I wanted learners to finish by solving an open-ended mission on their own, not just by completing worksheets.</li>
+        <li><strong>Several instructors, one standard.</strong>Other instructors ran sessions too, so the routine had to be easy to teach and repeat.</li>
+      </ul>
+    </section>
+
+    <section class="cs-sec" aria-labelledby="r-seq">
+      <h2 id="r-seq">One new capability per session, building to a capstone</h2>
+      <p>I chose and ordered seven lessons so each one adds exactly one new sensor or mechanism and reuses everything before it. By Lesson 6 nothing is new; the challenge is combining skills. This is the same structure I use for onboarding people to new equipment: introduce one function, practice it, then integrate it into the real task.</p>
+      <ol class="steps">
+        <li><span class="n">Lesson 1</span><b>Moves and turns</b>Drive motors <span class="port">B</span> <span class="port">C</span>: rotations, degrees, turn types, pseudocode. Challenge: drive exactly 84 cm.</li>
+        <li><span class="n">Lesson 2</span><b>Objects and obstacles</b>Ultrasonic sensor <span class="port">4</span>: stop before an object, beep faster as it gets closer.</li>
+        <li><span class="n">Lesson 3</span><b>Grab and release</b>Medium motor arm <span class="port">A</span>: grab a load, move it, release it. Combines with Lesson 2.</li>
+        <li><span class="n">Lesson 4</span><b>Colors and lines</b>Color sensor <span class="port">3</span>: calibrate, detect a line, follow it smoothly.</li>
+        <li><span class="n">Lesson 5</span><b>Angles and patterns</b>Gyro sensor <span class="port">2</span>: accurate turns when wheels slip; reusable My Blocks to organize code.</li>
+        <li class="cap"><span class="n">Lesson 6, capstone</span><b>The factory robot</b>No new hardware. Teams design extensions, deliver a load to a drop-off zone, and follow a line to the charging station.</li>
+        <li class="cap"><span class="n">Lesson 7, transfer</span><b>The guided mission</b>A competition-style mission on a FIRST LEGO League field: break the problem down and solve it with skills from the whole camp.</li>
+      </ol>
+    </section>
+
+    <section class="cs-sec" aria-labelledby="r-routine">
+      <h2 id="r-routine">The session routine I trained instructors to run</h2>
+      <p>Every lesson follows the same five beats, so learners always know what comes next and any instructor can pick up a session.</p>
+      <ol class="beats">
+        <li><b>Hook</b>A real-world question: “What robots do you know that detect objects?”</li>
+        <li><b>Observe</b>Run a ready-made program and describe what the robot does.</li>
+        <li><b>Modify</b>Rebuild the behavior from the same blocks.</li>
+        <li><b>Challenge</b>An open task with a measurable target, like 84 cm.</li>
+        <li><b>Reflect</b>“What did you do well? What could you do better?”</li>
+      </ol>
+      <p class="note">The routine moves learners from guided practice to independence inside each session, and the capstone repeats that move across the whole camp.</p>
+    </section>
+  </div>
+
+  <section class="lab" aria-labelledby="r-try">
+    <div class="wrap">
+      <h2 class="h2" id="r-try">Try it: the line follower keeps losing the line</h2>
+      <p class="intro" style="margin-bottom:0">A branching scenario I designed from the most common Lesson 4 fault. It practices diagnosis, not just steps: what would you check first?</p>
+      <div class="sim">
+        <div class="scene" id="scene" aria-live="polite"></div>
+        <aside class="side">
+          <h3>Your checks so far</h3>
+          <ol id="log"><li class="done" style="text-decoration:none">No checks yet</li></ol>
+          <p>Design note: sensors that work in one room often fail in another because lighting and surfaces change. The scenario builds the habit of calibrating before blaming the code.</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap cs">
+    <section class="cs-sec" aria-labelledby="r-aid">
+      <h2 id="r-aid">Facilitator quick card: common faults by lesson</h2>
+      <p>A one-page reference so every instructor can spot and coach the same problems the same way.</p>
+      <div class="tablebox"><table>
+        <thead><tr><th>Lesson</th><th>Symptom</th><th>Coach them to check</th></tr></thead>
+        <tbody>
+          <tr><td>1 Moves</td><td>Robot drives in a curve or misses 84 cm</td><td>Both wheels spin freely; motors in <span class="port">B</span> and <span class="port">C</span>; measure, then adjust rotations, not guess</td></tr>
+          <tr><td>2 Obstacles</td><td>Robot hits the object</td><td>Sensor in port <span class="port">4</span>, facing forward; stopping distance, not speed, is the first fix</td></tr>
+          <tr><td>3 Grab</td><td>Arm misses or drops the load</td><td>Arm motor in <span class="port">A</span>; slow the arm speed; stop at the right distance first</td></tr>
+          <tr><td>4 Lines</td><td>Robot loses the line or spins</td><td>Recalibrate light over white and over the middle of the line; then lower speed</td></tr>
+          <tr><td>5 Angles</td><td>Turns drift or overshoot</td><td>Robot still while the gyro starts up; reduce turn speed</td></tr>
+          <tr><td>6 Factory</td><td>Team doesn’t know where to start</td><td>Split the mission into subtasks and name which earlier lesson solves each one</td></tr>
+        </tbody>
+      </table></div>
+    </section>
+
+    <section class="cs-sec" aria-labelledby="r-rubric">
+      <h2 id="r-rubric">Capstone rubric: the factory robot</h2>
+      <p>The capstone shows whether learners can integrate skills, so the rubric scores the process as well as the result.</p>
+      <div class="tablebox"><table>
+        <thead><tr><th>Criterion</th><th>Developing</th><th>Proficient</th><th>Advanced</th></tr></thead>
+        <tbody>
+          <tr><td>Plan</td><td>Starts building without a plan</td><td>Splits the mission into subtasks</td><td>Subtasks mapped to the sensors and lessons that solve them</td></tr>
+          <tr><td>Delivery</td><td>Grabs the load but misses the zone</td><td>Releases the load inside the drop-off zone</td><td>Releases it near the center, reliably on repeat runs</td></tr>
+          <tr><td>Navigation</td><td>Follows part of the line</td><td>Reaches the charging station</td><td>Stops close to the object without touching it</td></tr>
+          <tr><td>Code quality</td><td>One long program</td><td>Uses sensors instead of fixed timings</td><td>Organized with My Blocks and easy to explain</td></tr>
+          <tr><td>Reflection</td><td>Describes what happened</td><td>Names what worked and what didn’t</td><td>Proposes a specific next improvement</td></tr>
+        </tbody>
+      </table></div>
+    </section>
+
+    <section class="cs-sec" aria-labelledby="r-eval">
+      <h2 id="r-eval">How the program is evaluated</h2>
+      <div class="levels">
+        <div><span>Reaction</span><p>The reflection prompt that closes every lesson.</p></div>
+        <div><span>Learning</span><p>Each lesson’s measurable challenge, such as an exact distance or a shape pattern.</p></div>
+        <div><span>Transfer</span><p>The factory robot and guided mission, where teams solve problems with no step-by-step instructions.</p></div>
+      </div>
+    </section>
+
+    <section class="cs-sec" aria-labelledby="r-why">
+      <h2 id="r-why">Why this matters for workplace training</h2>
+      <p>The same design carries over to onboarding people onto equipment and systems. At L’Oréal USA and Cardinal Health I introduce one procedure at a time, check it before moving on, give staff a quick reference for common faults, and finish with the integrated real task. Robotec is the example; the method is the work.</p>
+      <p class="credit">Program organization, sequencing, facilitation, instructor training, and the scenario, quick card and rubric on this page by Shadrack Kwaku Agyiri. Student worksheets used in the camp come from the LEGO® Education MINDSTORMS® EV3 “Robot Trainer” unit. LEGO, MINDSTORMS and FIRST LEGO League are trademarks of their owners, who do not sponsor or endorse this portfolio.</p>
+      <a class="btn text" href="#work">Back to all projects</a>
+    </section>
+  </div>
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <h2 class="h2">Let’s connect</h2>
+    <p>I’m open to learning experience design, instructional design, and technical training roles, including ones with travel.</p>
+    <div class="links">
+      <a class="btn primary" href="mailto:revshaddy@gmail.com">Email me</a>
+      <a class="btn ghost" href="https://www.linkedin.com/in/shadrack-agyiri" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn ghost" href="https://drive.google.com/file/d/1i8v3_HQKEhaBJcY2WiA7CTC0rIu_MCQ6/view?usp=drivesdk" target="_blank" rel="noopener">View resume</a>
+    </div>
+    <p class="small">© 2026 Shadrack Agyiri</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var views={home:document.getElementById('view-home'),about:document.getElementById('view-about'),robotec:document.getElementById('view-robotec')};
+  function route(){
+    var h=location.hash.replace('#','');
+    var v=(h==='about'||h==='robotec')?h:'home';
+    Object.keys(views).forEach(function(k){views[k].hidden=(k!==v)});
+    document.querySelectorAll('[data-nav]').forEach(function(a){
+      var on=(v==='about'&&a.dataset.nav==='about')||((h==='work'||v==='robotec')&&a.dataset.nav==='work');
+      if(on)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');
+    });
+    if(h==='work'){document.getElementById('projects').scrollIntoView();}else{window.scrollTo(0,0);}
+  }
+  window.addEventListener('hashchange',route);route();
+
+  var S={
+    start:{p:"A team runs their line-following program on the classroom mat. It worked yesterday, but today the robot <strong>wiggles off the line and spins in circles</strong>. What do you check first?",
+      c:[["Raise the motor speed so it reaches the line faster","speed"],["Check the color sensor’s port and mounting","mount"],["Recalibrate the light sensor on today’s mat","calib"]]},
+    speed:{log:"Raised the speed",fb:["warn","Now it loses the line even sooner.","A faster robot has less time to react. Speed is a tuning step for the end, not a fix. Find out what the sensor is actually reading first."],
+      c:[["Check the color sensor’s port and mounting","mount"],["Recalibrate the light sensor","calib"]]},
+    mount:{log:"Checked port and mounting",fb:["info","Hardware looks right.","The sensor is in port 3, pointing straight down, close to the mat. Quick check done: you’ve ruled out the hardware."],
+      c:[["Recalibrate the light sensor","calib"],["Rewrite the line-following program","rewrite"]]},
+    rewrite:{log:"Started rewriting the program",fb:["warn","That’s a long fix for a program that worked yesterday.","Nothing in the code changed. Something about the environment did. Check what the sensor sees before changing code."],
+      c:[["Recalibrate the light sensor","calib"]]},
+    calib:{log:"Recalibrated the sensor",fb:["ok","Found it.","The room is brighter today, so the old white and black readings no longer match the mat. Hold the sensor over white and press Up, then over the middle of the line and press Down. Run the program again."],
+      c:[["Run the line follower again","done"]]},
+    done:{log:"Re-tested the robot",fb:["ok","It follows the line smoothly.","Reflection: when should you calibrate? Whenever the lighting or the surface changes, before you touch the code."],c:[]}
+  };
+  var scene=document.getElementById('scene'),log=document.getElementById('log'),steps=[];
+  function render(k){var n=S[k];if(n.log)steps.push(n.log);
+    log.innerHTML=steps.length?steps.map(function(s,i){return '<li class="'+(i<steps.length-1?'done':'')+'">'+s+'</li>'}).join(''):'<li>No checks yet</li>';
+    var h='';if(n.fb)h+='<div class="fb '+n.fb[0]+'"><strong>'+n.fb[1]+'</strong>'+n.fb[2]+'</div>';
+    if(n.p)h+='<p class="prompt">'+n.p+'</p>';else if(n.c.length)h+='<p class="prompt">What do you do next?</p>';
+    if(n.c.length)h+='<div class="choices">'+n.c.map(function(c){return '<button type="button" data-k="'+c[1]+'">'+c[0]+'</button>'}).join('')+'</div>';
+    else{var n2=steps.length-1;h+='<p style="margin:0">You found the fault in <strong>'+n2+'</strong> check'+(n2===1?'':'s')+'. Most efficient path: recalibrate first.</p>';}
+    if(k!=='start')h+='<button type="button" class="restart" id="restart">Restart scenario</button>';
+    scene.innerHTML=h;
+    scene.querySelectorAll('[data-k]').forEach(function(b){b.onclick=function(){render(b.dataset.k)}});
+    var r=document.getElementById('restart');if(r)r.onclick=function(){steps=[];render('start')};
+  }
+  render('start');
+})();
+</script>
+</body>
+</html>
